@@ -1,7 +1,25 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
+import {VitePWA} from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+    plugins: [
+        react(),
+        VitePWA({
+            registerType: "autoUpdate",
+            devOptions: {
+              enabled: true
+            },
+            manifest: {
+                icons: [
+                    {
+                        src: "/icons/768.png",
+                        sizes: "768x768",
+                        type: "image/png"
+                    }
+                ],
+            }
+        })
+    ],
 })
