@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource/kaushan-script':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@types/react-gauge-chart':
     specifier: ^0.4.2
     version: 0.4.2
@@ -1505,6 +1508,10 @@ packages:
     resolution: {integrity: sha512-mjZVbpaeMZludF2fsWLD0Z9gCref1Tk4i9+wddjRvpUNqqcndPkBD09N/Mapey0b3jaXbLm2kICwFv2E64QinA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource/kaushan-script@5.0.17:
+    resolution: {integrity: sha512-9LGGHgmiW1c1G2XwIBt6oHd33uB7SfvU/huJ7aEkG3Ztc7heUTxDkZQB0XLVLCG3T9RSW5LAvtlKZFTxBs6bfQ==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}

@@ -28,7 +28,7 @@ function App() {
     return (
         <main className={"max-h-screen h-full flex flex-col justify-between"}>
             <section className={"flex flex-col items-center gap-12"}>
-                <h1>RK Tracker</h1>
+                <h1 className={"font-kaushanScript"}>RK Tracker</h1>
                 <div className={"flex gap-3"}>
                     <h2>Seuil RK</h2>
                     <input
@@ -38,7 +38,7 @@ function App() {
                         onChange={(e) => setRkThresholdInputValue(e.target.value)}/>
                 </div>
             </section>
-            <p className={"text-2xl"}>
+            <p className={"font-kaushanScript text-3xl"}>
                 {intensityDescription[trackingIntensity - 1]}
             </p>
             <section className={"flex flex-col gap-4"}>
