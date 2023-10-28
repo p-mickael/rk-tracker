@@ -2,21 +2,14 @@ import './App.css'
 import {useMemo, useState} from "react";
 import GaugeChart from "react-gauge-chart";
 import TokensControl from "./TokensControls.tsx";
+import Header from "./Header.tsx";
+import IntensityDescription from "./IntensityDescription.tsx";
 
 const numberOfTrackingIntensity = 5
 
-const intensityDescription = [
-    "Personne ne vous cherche",
-    "Vous avez attiré l'attention",
-    "Ils sont sur vos traces et cherchent à vous identifier",
-    "Vous avez été identifié et ils cherchent à vous capturer, ou pire...",
-    "A ce stade, seul un miracle peut vous sauver"
-]
-
 function App() {
     const [numberOfTokens, setNumberOfTokens] = useState(0)
-    const [rkThresholdInputValue, setRkThresholdInputValue] = useState("5")
-    const rkThreshold = Number(rkThresholdInputValue) || 0
+    const [rkThreshold, setRkThreshold] = useState(5)
     const maxNumberOfTokens = numberOfTrackingIntensity * rkThreshold
     const percent = numberOfTokens / maxNumberOfTokens
     const trackingIntensity = useMemo(() => {
@@ -26,21 +19,9 @@ function App() {
     const currentIntensityTokenAmount = numberOfTokens % rkThreshold
 
     return (
-        <main className={"max-h-screen h-full flex flex-col justify-between"}>
-            <section className={"flex flex-col items-center gap-12"}>
-                <h1 className={"font-kaushanScript"}>RK Tracker</h1>
-                <div className={"flex gap-3"}>
-                    <h2>Seuil RK</h2>
-                    <input
-                        className={" text-center rounded-md border p-1 text-xl"}
-                        type="text"
-                        value={rkThresholdInputValue}
-                        onChange={(e) => setRkThresholdInputValue(e.target.value)}/>
-                </div>
-            </section>
-            <p className={"font-kaushanScript text-3xl"}>
-                {intensityDescription[trackingIntensity - 1]}
-            </p>
+        <main className={"max-h-screen h-full w-80 flex flex-col justify-between"}>
+            <Header rkThreshold={rkThreshold} setRkThreshold={setRkThreshold} />
+            <IntensityDescription trackingIntensity={trackingIntensity} />
             <section className={"flex flex-col gap-4"}>
                 <GaugeChart
                     id="rk-gauge"

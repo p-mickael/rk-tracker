@@ -4,6 +4,7 @@ import {VitePWA} from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: "/rk-tracker/",
     plugins: [
         react(),
         VitePWA({
@@ -12,14 +13,16 @@ export default defineConfig({
               enabled: true
             },
             manifest: {
+                name: "RK Tracker",
+                short_name: "RK Tracker",
                 icons: [
                     {
-                        src: "/icons/768.png",
+                        src: "/rk-tracker/icons/768.png",
                         sizes: "768x768",
                         type: "image/png"
                     },
                     {
-                        src: "/icons/192.png",
+                        src: "/rk-tracker/icons/192.png",
                         sizes: "192x192",
                         type: "image/png"
                     }

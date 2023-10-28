@@ -1,3 +1,4 @@
+import {ButtonHTMLAttributes} from "react";
 
 type Props = {
     numberOfTokens: number
@@ -24,14 +25,25 @@ function TokensControls({numberOfTokens, maxNumberOfTokens, setNumberOfTokens}: 
     }
 
     return (
-        <section className={"max-w-sm flex flex-col items-center-center gap-3"}>
+        <section className={"flex flex-col items-center-center gap-3"}>
             <div className={"flex flex-row justify-center gap-3"}>
-                <button className={"flex-1"} onClick={removeToken}>-</button>
-                <button className={"flex-1"} onClick={addToken}>+</button>
+                <StyledButton onClick={removeToken}>-</StyledButton>
+                <StyledButton onClick={addToken}>+</StyledButton>
             </div>
-            <button onClick={resetToken}>Reset</button>
+            <StyledButton onClick={resetToken}>Reset</StyledButton>
         </section>
     );
 }
 
+type StyledButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+const StyledButton = ({children, onClick}: StyledButtonProps) => {
+    return (
+        <button
+            className={"flex-1 h-"}
+            onClick={onClick}
+        >
+            {children}
+        </button>
+    )
+}
 export default TokensControls;
