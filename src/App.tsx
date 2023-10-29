@@ -1,5 +1,5 @@
 import './App.css'
-import {useMemo, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import GaugeChart from "react-gauge-chart";
 import TokensControl from "./TokensControls.tsx";
 import Header from "./Header.tsx";
@@ -18,6 +18,10 @@ function App() {
     }, [numberOfTokens, rkThreshold]);
     const currentIntensityTokenAmount = numberOfTokens % rkThreshold
 
+    useEffect(() => {
+        setNumberOfTokens(0)
+    }, [rkThreshold]);
+
     return (
         <main className={"max-h-screen h-full w-80 flex flex-col justify-between"}>
             <Header rkThreshold={rkThreshold} setRkThreshold={setRkThreshold} />
@@ -28,7 +32,6 @@ function App() {
                     nrOfLevels={numberOfTrackingIntensity}
                     arcWidth={0.3}
                     percent={percent}
-                    needleColor={"#000000"}
                     animDelay={0}
                     formatTextValue={() => trackingIntensity.toString()}
                 />
