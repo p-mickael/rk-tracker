@@ -1,27 +1,33 @@
 {
   "name": "rk-tracker",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "type": "module",
   "homepage": "https://p-mickael.github.io/rk-tracker/",
   "scripts": {
-    "predeploy" : "pnpm run build",
-    "deploy" : "tsc && vite build && gh-pages -d dist",
     "dev": "vite",
     "dev-exp": "vite --host",
     "build": "tsc && vite build",
+    "deploy": "tsc && vite build && gh-pages -d dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@fontsource/kaushan-script": "^5.0.17",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-slot": "^1.0.2",
     "@types/react-gauge-chart": "^0.4.2",
-    "prop-types": "^15.8.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.290.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-gauge-chart": "^0.4.1"
+    "react-gauge-chart": "^0.4.1",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/node": "^20.8.9",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -33,6 +39,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.31",
+    "prop-types": "^15.8.1",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",

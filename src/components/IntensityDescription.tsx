@@ -11,12 +11,10 @@ type Props = {
     trackingIntensity: number
 }
 
-function IntensityDescription({trackingIntensity}: Props) {
+export default function IntensityDescription({trackingIntensity}: Props) {
     return (
         <p className={"font-kaushanScript text-3xl"}>
             {intensityDescription[trackingIntensity - 1]}
         </p>
     );
 }
-
-export default IntensityDescription;

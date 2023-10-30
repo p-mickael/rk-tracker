@@ -1,4 +1,5 @@
 import {ButtonHTMLAttributes} from "react";
+import {Button} from "@/components/ui/button.tsx";
 
 type Props = {
     numberOfTokens: number
@@ -38,12 +39,12 @@ function TokensControls({numberOfTokens, maxNumberOfTokens, setNumberOfTokens}: 
 type StyledButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 const StyledButton = ({children, onClick}: StyledButtonProps) => {
     return (
-        <button
+        <Button
             className={"flex-1 h-"}
             onClick={onClick}
         >
             {children}
-        </button>
+        </Button>
     )
 }
 export default TokensControls;

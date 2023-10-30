@@ -1,4 +1,5 @@
 import React from "react";
+import {Input} from "@/components/ui/input.tsx";
 
 type Props = {
     rkThreshold: number
@@ -19,7 +20,7 @@ export function RKThresholdInput({rkThreshold, setRkThreshold}: Props) {
 
     return <div className={"flex flex-col items-center w-full gap-3"}>
         <h2>Seuil RK</h2>
-        <input
+        <Input
             className={"text-center rounded-md border p-1 w-full text-2xl"}
             type="text"
             inputMode={"numeric"}
