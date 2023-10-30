@@ -2,8 +2,8 @@ import './App.css'
 import {useEffect, useMemo, useState} from "react";
 import GaugeChart from "react-gauge-chart";
 import TokensControl from "./TokensControls.tsx";
-import Header from "./Header.tsx";
 import IntensityDescription from "./IntensityDescription.tsx";
+import {RKThresholdInput} from "./RKThresholdInput.tsx";
 
 const numberOfTrackingIntensity = 5
 
@@ -24,7 +24,10 @@ function App() {
 
     return (
         <main className={"max-h-screen h-full w-80 flex flex-col justify-between"}>
-            <Header rkThreshold={rkThreshold} setRkThreshold={setRkThreshold} />
+            <section className={"flex flex-col items-center gap-12"}>
+                <h1 className={"font-kaushanScript"}>RK Tracker</h1>
+                <RKThresholdInput setRkThreshold={setRkThreshold} rkThreshold={rkThreshold} />
+            </section>
             <IntensityDescription trackingIntensity={trackingIntensity} />
             <section className={"flex flex-col gap-4"}>
                 <GaugeChart
