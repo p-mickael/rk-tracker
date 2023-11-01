@@ -1,28 +1,20 @@
 import {ButtonHTMLAttributes} from "react";
 import {Button} from "@/components/ui/button.tsx";
+import useTokenState from "@/useTokenState.tsx";
 
-type Props = {
-    numberOfTokens: number
-    maxNumberOfTokens: number
-    setNumberOfTokens: (numberOfTokens: number) => void
-}
-
-function TokensControls({numberOfTokens, maxNumberOfTokens, setNumberOfTokens}: Props) {
+function TokensControls() {
+    const [, dispatch] = useTokenState()
 
     function removeToken() {
-        if (numberOfTokens > 0) {
-            setNumberOfTokens(numberOfTokens - 1)
-        }
+        dispatch({type: 'remove_token'})
     }
 
     function addToken() {
-        if (numberOfTokens < maxNumberOfTokens) {
-            setNumberOfTokens(numberOfTokens + 1)
-        }
+        dispatch({type: 'add_token'})
     }
 
     function resetToken() {
-        setNumberOfTokens(0)
+        dispatch({type: 'reset_tokens'})
     }
 
     return (
@@ -37,6 +29,7 @@ function TokensControls({numberOfTokens, maxNumberOfTokens, setNumberOfTokens}: 
 }
 
 type StyledButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+
 const StyledButton = ({children, onClick}: StyledButtonProps) => {
     return (
         <Button
