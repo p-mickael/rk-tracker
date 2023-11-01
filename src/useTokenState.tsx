@@ -1,6 +1,5 @@
-import {TokenContext} from "@/contexts/TokenContext.tsx";
 import React from "react";
-
+import TokenContext from "@/TokenContext.tsx";
 
 export default function useTokenState() {
     const context = React.useContext(TokenContext)

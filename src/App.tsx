@@ -5,7 +5,7 @@ import IntensityDescription from "@/components/IntensityDescription.tsx";
 import GaugeChart from "react-gauge-chart";
 import TokensControls from "@/components/TokensControls.tsx";
 import useTokenState from "@/useTokenState.tsx";
-import {maxTrackingIntensity} from "@/contexts/TokenContext.tsx";
+import {maxTrackingIntensity} from "@/TokenStateProvider.tsx";
 
 function App() {
     const [

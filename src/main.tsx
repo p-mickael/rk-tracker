@@ -4,14 +4,14 @@ import App from './App.tsx'
 import './index.css'
 import {ThemeProvider} from "@/components/theme-provider.tsx";
 import "@fontsource/kaushan-script"
-import {TokenProvider} from "@/contexts/TokenContext.tsx";
+import TokenStateProvider from "@/TokenStateProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <ThemeProvider defaultTheme={"dark"} storageKey={"vite-ui-theme"}>
-            <TokenProvider>
+            <TokenStateProvider>
                 <App/>
-            </TokenProvider>
+            </TokenStateProvider>
         </ThemeProvider>
     </React.StrictMode>,
 )

@@ -1,40 +1,17 @@
-import React, {PropsWithChildren, useReducer} from "react";
+import {maxTrackingIntensity} from "@/TokenStateProvider.tsx";
 
-export const maxTrackingIntensity = 5
-const defaultRkThreshold = 5
-export const TokenContext = React.createContext<[State, React.Dispatch<Action>] | undefined>(undefined)
-
-export function TokenProvider({children}: PropsWithChildren) {
-    const [
-        state,
-        dispatch
-    ] = useReducer(reducer, initialState)
-
-    return (
-        <TokenContext.Provider value={[state, dispatch]}>
-            {children}
-        </TokenContext.Provider>
-    )
-}
-
-type State = {
+export type State = {
     numberOfTokens: number
     rkThreshold: number
     maxNumberOfTokens: number
 }
 
-type Action = { type: 'add_token' } |
+export type Action = { type: 'add_token' } |
     { type: 'remove_token' } |
     { type: 'reset_tokens' } |
     { type: 'set_rk_threshold', rkThreshold: number }
 
-const initialState: State = {
-    numberOfTokens: 0,
-    rkThreshold: defaultRkThreshold,
-    maxNumberOfTokens: defaultRkThreshold * maxTrackingIntensity
-}
-
-function reducer(state: State, action: Action): State {
+export default function tokenStateReducer(state: State, action: Action): State {
     switch (action.type) {
         case 'add_token': {
             if (state.numberOfTokens >= state.maxNumberOfTokens) {
